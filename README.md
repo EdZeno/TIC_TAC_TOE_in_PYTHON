@@ -6,3 +6,7 @@ No just kiding it is only a basic min max algorithm.
 ### TECHNOLOGY USED
 python . 
 pytest . 
+
+### HOW TO INSTALL IT?
+
+### HOW TO PLAY IT?
