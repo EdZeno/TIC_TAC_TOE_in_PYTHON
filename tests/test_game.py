@@ -19,15 +19,61 @@ def test_human_moves(monkeypatch):
                               [' ',' ',' '],
                               [' ',' ','X']]
 
-def test_trial():
-    empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
+def test_winner_horizontal():
     game = Game()
-    assert game.trial(empty_cells) == [1]
+    board = [['X','X','X'],[' ',' ',' '],[' ',' ',' ']]
+    assert game.winner(board) == 'X'
 
-def test_trial():
-    empty_cells = [[0,0],[0,1],[1,0],[1,1]]
-    board = [[' ',' '],
-             [' ',' ']]
-    turns = ['X']
+def test_winner_horizontal_none():
     game = Game()
-    assert game.trial(board, empty_cells, turns) == [1]
+    board = [['X','X',' '],[' ',' ',' '],[' ',' ',' ']]
+    assert game.winner(board) == None
+
+def test_winner_horizontal_second():
+    game = Game()
+    board = [[' ',' ',' '],['O','O','O'],[' ',' ',' ']]
+    assert game.winner(board) == 'O'
+
+def test_winner_horizontal_third():
+    game = Game()
+    board = [[' ',' ',' '],[' ',' ',' '],['X','X','X']]
+    assert game.winner(board) == 'X'
+
+def test_winner_vertical():
+    game = Game()
+    board = [['O',' ',' '],['O',' ',' '],['O',' ',' ']]
+    assert game.winner(board) == 'O'
+
+def test_winner_vertical_second():
+    game = Game()
+    board = [[' ','O',' '],[' ','O',' '],[' ','O',' ']]
+    assert game.winner(board) == 'O'
+
+def test_winner_vertical_third():
+    game = Game()
+    board = [[' ',' ','O'],[' ',' ','O'],[' ',' ','O']]
+    assert game.winner(board) == 'O'
+
+def test_winner_diagonal():
+    game = Game()
+    board = [['O',' ',' '],[' ','O',' '],[' ',' ','O']]
+    assert game.winner(board) == 'O'
+
+def test_winner_diagonal_second():
+    game = Game()
+    board = [[' ',' ','O'],[' ','O',' '],['O',' ',' ']]
+    assert game.winner(board) == 'O'
+
+# def test_trial():
+#     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
+#     game = Game()
+#     assert game.trial(empty_cells) == [1]
+
+# def test_trial():
+#     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,3]]
+#     board = [[' ',' ',' '],
+#              [' ',' ',' '],
+#              [' ',' ',' ']]
+#     turns = ['X']
+#     game = Game()
+#     assert game.trial(board, empty_cells, turns) == [1]
