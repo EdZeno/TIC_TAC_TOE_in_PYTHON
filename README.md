@@ -10,3 +10,5 @@ pytest .
 ### HOW TO INSTALL IT?
 
 ### HOW TO PLAY IT?
+
+### HOW TO RUN THE TESTS?
