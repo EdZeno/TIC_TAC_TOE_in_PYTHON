@@ -12,3 +12,5 @@ pytest .
 ### HOW TO PLAY IT?
 
 ### HOW TO RUN THE TESTS?
+
+### HOW WOULD I MAKE IT BETTER?
