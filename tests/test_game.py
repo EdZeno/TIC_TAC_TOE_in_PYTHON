@@ -70,6 +70,10 @@ def test_draw_fail():
     board = [['X','X','O'],['O','O',' '],['X','O','O']]
     assert game.draw(board) == 'Make your move'
 
+def test_draw_second():
+    game = Game()
+    board = [['O','X','X'],['X','O','O'],['O','O','X']]
+    assert game.draw(board) == 'Draw'
 # def test_trial():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
 #     game = Game()
