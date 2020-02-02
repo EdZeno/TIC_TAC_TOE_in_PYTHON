@@ -25,26 +25,22 @@ class Game():
         elif (board[0][i] == board[1][i] and board[1][i] == board[2][i] and board[0][i] != ' '):
           return board[0][i]
 
-
       if (board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] != ' '):
         return board[0][0]
       elif (board[2][0] == board[1][1] and board[1][1] == board[0][2] and board[2][0] != ' '):
         return board[2][0]
 
-    def moves_left(self, board):
-      moves = []
-      for i in board:
-        if ' ' in i:
-          moves.append(1)
-
-      if 1 in moves:
-        return True
-      else:
-        return False
-
     def draw(self, board):
-        if self.winner(board) == None and self.moves_left(board) == False:
+        moves = []
+        print(moves)
+        for i in board:
+            if ' ' in i:
+                moves.append(1)
+        print(moves)
+        if self.winner(board) == None and len(moves) == 0:
             return 'Draw'
+        else:
+            return 'Make your move'
 
 
     def trial(self, board, empty_cells, turns):
