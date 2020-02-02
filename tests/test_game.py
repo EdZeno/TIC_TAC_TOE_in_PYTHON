@@ -2,9 +2,7 @@ from lib.game import Game
 
 def test_game_has_board():
     game = Game()
-    assert game.board == [[' ',' ',' '],
-                          [' ',' ',' '],
-                          [' ',' ',' ']]
+    assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
 def test_display_board():
     game = Game()
@@ -15,9 +13,7 @@ def test_human_moves(monkeypatch):
         monkeypatch.setattr('builtins.input', lambda x: '3')
         game = Game()
         game.human_moves()
-        assert game.board == [[' ',' ',' '],
-                              [' ',' ',' '],
-                              [' ',' ','X']]
+        assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ','X']]
 
 def test_winner_horizontal():
     game = Game()
@@ -64,6 +60,15 @@ def test_winner_diagonal_second():
     board = [[' ',' ','O'],[' ','O',' '],['O',' ',' ']]
     assert game.winner(board) == 'O'
 
+def test_moves_left():
+    game = Game()
+    board = [['X','X','O'],['O','O','X'],['X','O','O']]
+    assert game.moves_left(board) == False
+
+def test_draw():
+    game = Game()
+    board = [['X','X','O'],['O','O','X'],['X','O','O']]
+    assert game.draw(board) == 'Draw'
 # def test_trial():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
 #     game = Game()
