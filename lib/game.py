@@ -42,8 +42,7 @@ class Game():
         else:
             return 'Make your move'
 
-
-    def trial(self, board, empty_cells, turns):
+    def get_best_move(self, board, empty_cells, turns):
         for cell in empty_cells:
             new_board = copy.deepcopy(board)
             new_turns = turns.copy()
@@ -66,4 +65,4 @@ class Game():
             elif len(new_empty_cells) == 0:
                 return 'I am out of here'
             else:
-                self.trial(new_board, new_empty_cells, new_turns)
+                self.get_best_move(new_board, new_empty_cells, new_turns)

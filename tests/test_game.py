@@ -50,6 +50,11 @@ def test_winner_vertical_third():
     board = [[' ',' ','O'],[' ',' ','O'],[' ',' ','O']]
     assert game.winner(board) == 'O'
 
+def test_winner_vertical_fourth():
+    game = Game()
+    board = [[' ',' ','O'],[' ',' ','O'],[' ',' ',' ']]
+    assert game.winner(board) == None
+
 def test_winner_diagonal():
     game = Game()
     board = [['O',' ',' '],[' ','O',' '],[' ',' ','O']]
@@ -74,16 +79,16 @@ def test_draw_second():
     game = Game()
     board = [['O','X','X'],['X','O','O'],['O','O','X']]
     assert game.draw(board) == 'Draw'
-# def test_trial():
+# def test_get_best_move():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
 #     game = Game()
-#     assert game.trial(empty_cells) == [1]
+#     assert game.get_best_move(empty_cells) == [1]
 
-# def test_trial():
+# def test_get_best_move_second():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,3]]
 #     board = [[' ',' ',' '],
 #              [' ',' ',' '],
 #              [' ',' ',' ']]
 #     turns = ['X']
 #     game = Game()
-#     assert game.trial(board, empty_cells, turns) == [1]
+#     assert game.get_best_move(board, empty_cells, turns) == [1]
