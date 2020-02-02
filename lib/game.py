@@ -42,6 +42,9 @@ class Game():
       else:
         return False
 
+    def draw(self, board):
+        if self.winner(board) == None and self.moves_left(board) == False:
+            return 'Draw'
 
 
     def trial(self, board, empty_cells, turns):
