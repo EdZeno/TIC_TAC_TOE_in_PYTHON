@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.7.5, pytest-5.3.1, py-1.8.0, pluggy-0.13.1
+rootdir: /Users/eduardkulcsickij-gut/MAKERS/tic_tac_toe
+collected 1 item
+
+tests/test_game.py 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/Users/eduardkulcsickij-gut/MAKERS/tic_tac_toe/lib/game.py:83: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+============================ no tests ran in 17.61s ============================

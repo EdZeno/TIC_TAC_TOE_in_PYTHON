@@ -4,9 +4,9 @@ def test_game_has_board():
     game = Game()
     assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
-def test_display_board():
-    game = Game()
-    assert game.display_board() == '  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  '
+# def test_display_board():
+#     game = Game()
+#     assert game.display_board() == '  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  '
 
 def test_human_moves(monkeypatch):
         monkeypatch.setattr('builtins.input', lambda x: '3')
@@ -79,16 +79,36 @@ def test_draw_second():
     game = Game()
     board = [['O','X','X'],['X','O','O'],['O','O','X']]
     assert game.draw(board) == 'Draw'
+
+def test_empty_cells():
+    game = Game()
+    board = [[' ',' ',' '],
+             [' ',' ',' '],
+             [' ',' ',' ']]
+    assert game.empty_cells(board) == [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
+    
+
 # def test_get_best_move():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
 #     game = Game()
 #     assert game.get_best_move(empty_cells) == [1]
 
 # def test_get_best_move_second():
-#     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,3]]
+#     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
 #     board = [[' ',' ',' '],
 #              [' ',' ',' '],
 #              [' ',' ',' ']]
 #     turns = ['X']
+#     # points = []
+#     points = None
 #     game = Game()
-#     assert game.get_best_move(board, empty_cells, turns) == [1]
+#     assert game.get_best_move(board, empty_cells, turns, points) == [1]
+
+# def test_get_best_move_second():
+#     empty_cells = [[0,0],[0,1],[1,0],[1,1]]
+#     board = [[' ',' '],
+#              [' ',' ']]
+#     turns = ['X']
+#     points = []
+#     game = Game()
+#     assert game.get_best_move(board, empty_cells, turns, points) == [1]

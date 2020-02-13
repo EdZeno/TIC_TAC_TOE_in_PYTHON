@@ -5,10 +5,14 @@ class Game():
              [' ',' ',' '],
              [' ',' ',' ']]
 
+    tunrs = []
+
+    # points = []
+
     def display_board(self):
       board_copy = self.board.copy()
-      board_copy.insert(1, ['– – – – -'])
-      board_copy.insert(3, ['– – – – -'])
+      board_copy.insert(1, ['– – – – -'])
+      board_copy.insert(3, ['– – – – -'])
       pretty_board = ''.join('\n'.join([' | '.join([str(elem) for elem in list]) for list in board_copy]))
       return pretty_board
 
@@ -42,12 +46,20 @@ class Game():
         else:
             return 'Make your move'
 
-    def get_best_move(self, board, empty_cells, turns):
+    def empty_cells(self, board):
+        empty_cells = [[index1,index2] for index1,value1 in enumerate(board) for index2,value2 in enumerate(value1) if value2==' ']
+        return empty_cells
+
+    def get_best_move(self, board, empty_cells, turns, points=None):
+        if points == None:
+            points = []
+
         for cell in empty_cells:
             new_board = copy.deepcopy(board)
             new_turns = turns.copy()
-            print('START')
-            print(board)
+            # print(new_points)
+            # print('START')
+            # print(board)
             if turns[-1] == 'X':
               new_board[cell[0]][cell[1]] = 'O'
               new_turns.append('O')
@@ -56,13 +68,18 @@ class Game():
               new_turns.append('X')
 
             new_empty_cells = [[index1,index2] for index1,value1 in enumerate(new_board) for index2,value2 in enumerate(value1) if value2==' ']
-            print('--------')
-            print(new_board)
-            print('--------')
-            print(new_empty_cells)
+            # print('--------')
+            # print(new_board)
+            # print('--------')
+            # print(new_empty_cells)
+            # new_points = copy.deepcopy(points)
             if self.winner(new_board) == 'X':
-                return
+                # print(new_points)
+                return points.append(-1)
+            elif self.winner(new_board) == 'O':
+                return points.append(1)
             elif len(new_empty_cells) == 0:
-                return 'I am out of here'
+                return points.append(0)
             else:
-                self.get_best_move(new_board, new_empty_cells, new_turns)
+                self.get_best_move(new_board, new_empty_cells, new_turns, points)
+        print(points)
