@@ -94,6 +94,13 @@ def test_empty_cells_one_element():
              [' ',' ',' ']]
     assert game.empty_cells(board) == [[0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]]
 
+def test_empty_cells_three_element():
+    game = Game()
+    board = [[' ',' ',' '],
+             ['X','X','O'],
+             [' ',' ',' ']]
+    assert game.empty_cells(board) == [[0,0],[0,1],[0,2],[2,0],[2,1],[2,2]]
+
 # def test_get_best_move():
 #     empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1]]
 #     game = Game()
