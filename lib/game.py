@@ -14,6 +14,7 @@ class Game():
       board_copy.insert(1, ['– – – – -'])
       board_copy.insert(3, ['– – – – -'])
       pretty_board = ''.join('\n'.join([' | '.join([str(elem) for elem in list]) for list in board_copy]))
+      print(pretty_board)
       return pretty_board
 
     def human_moves(self):
@@ -51,7 +52,7 @@ class Game():
         return empty_cells
 
     def get_best_move(self, board, empty_cells, turns, points=None):
-        if points == None:
+        if points is None:
             points = []
 
         for cell in empty_cells:
@@ -82,4 +83,4 @@ class Game():
                 return points.append(0)
             else:
                 self.get_best_move(new_board, new_empty_cells, new_turns, points)
-        print(points)
+        return print(points)

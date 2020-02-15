@@ -1,11 +1,24 @@
 ============================= test session starts ==============================
 platform darwin -- Python 3.7.5, pytest-5.3.1, py-1.8.0, pluggy-0.13.1
 rootdir: /Users/eduardkulcsickij-gut/MAKERS/tic_tac_toe
-collected 1 item
+collected 19 items
 
-tests/test_game.py 
+tests/test_game.py ..................F                                   [100%]
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-/Users/eduardkulcsickij-gut/MAKERS/tic_tac_toe/lib/game.py:83: KeyboardInterrupt
-(to show a full traceback on KeyboardInterrupt use --full-trace)
-============================ no tests ran in 17.61s ============================
+=================================== FAILURES ===================================
+__________________________ test_get_best_move_second ___________________________
+
+    def test_get_best_move_second():
+        empty_cells = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
+        board = [[' ',' ',' '],
+                 [' ',' ',' '],
+                 [' ',' ',' ']]
+        turns = ['X']
+        # points = []
+        # points = None
+        game = Game()
+>       assert game.get_best_move(board, empty_cells, turns, points) == [1]
+E       NameError: name 'points' is not defined
+
+tests/test_game.py:118: NameError
+========================= 1 failed, 18 passed in 0.08s =========================

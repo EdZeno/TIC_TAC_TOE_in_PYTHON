@@ -4,9 +4,9 @@ def test_game_has_board():
     game = Game()
     assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
-# def test_display_board():
-#     game = Game()
-#     assert game.display_board() == '  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  \n–\xa0–\xa0–\xa0– -\n  |   |  '
+def test_display_board():
+    game = Game()
+    assert game.display_board() == '  |   |  \n– – – – -\n  |   |  \n– – – – -\n  |   |  '
 
 def test_human_moves(monkeypatch):
         monkeypatch.setattr('builtins.input', lambda x: '3')
@@ -113,7 +113,7 @@ def test_empty_cells_three_element():
 #              [' ',' ',' ']]
 #     turns = ['X']
 #     # points = []
-#     points = None
+#     # points = None
 #     game = Game()
 #     assert game.get_best_move(board, empty_cells, turns, points) == [1]
 
