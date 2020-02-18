@@ -56,7 +56,6 @@ class Game():
         for cell in empty_cells:
             new_board = copy.deepcopy(board)
             new_turns = turns.copy()
-            # print(new_points)
             # print('START')
             # print(board)
             if turns[-1] == 'X':
@@ -67,9 +66,7 @@ class Game():
               new_turns.append('X')
 
             new_empty_cells = [[index1,index2] for index1,value1 in enumerate(new_board) for index2,value2 in enumerate(value1) if value2==' ']
-            # print('--------')
             # print(new_board)
-            # print('--------')
             # print(new_empty_cells)
             if self.winner(new_board) == 'X':
               points.append(-1)
@@ -79,5 +76,4 @@ class Game():
               points.append(0)
             else:
               self.get_best_move(new_board, new_empty_cells, new_turns, points)
-              # print('I am here')
-        return len(points)
+        return points
