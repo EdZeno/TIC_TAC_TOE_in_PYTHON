@@ -51,9 +51,7 @@ class Game():
         empty_cells = [[index1,index2] for index1,value1 in enumerate(board) for index2,value2 in enumerate(value1) if value2==' ']
         return empty_cells
 
-    def get_best_move(self, board, empty_cells, turns, points=None):
-        if points is None:
-            points = []
+    def get_best_move(self, board, empty_cells, turns, points=[]):
 
         for cell in empty_cells:
             new_board = copy.deepcopy(board)
@@ -73,14 +71,13 @@ class Game():
             # print(new_board)
             # print('--------')
             # print(new_empty_cells)
-            # new_points = copy.deepcopy(points)
             if self.winner(new_board) == 'X':
-                # print(new_points)
-                return points.append(-1)
+              points.append(-1)
             elif self.winner(new_board) == 'O':
-                return points.append(1)
+              points.append(1)
             elif len(new_empty_cells) == 0:
-                return points.append(0)
+              points.append(0)
             else:
-                self.get_best_move(new_board, new_empty_cells, new_turns, points)
-        return print(points)
+              self.get_best_move(new_board, new_empty_cells, new_turns, points)
+              # print('I am here')
+        return len(points)

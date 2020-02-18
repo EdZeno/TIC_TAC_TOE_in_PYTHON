@@ -1,9 +1,10 @@
 ============================= test session starts ==============================
-platform darwin -- Python 3.7.5, pytest-5.3.1, py-1.8.0, pluggy-0.13.1
+platform darwin -- Python 3.7.5, pytest-5.3.1, py-1.8.0, pluggy-0.13.1 -- /usr/local/opt/python/bin/python3.7
+cachedir: .pytest_cache
 rootdir: /Users/eduardkulcsickij-gut/MAKERS/tic_tac_toe
-collected 19 items
+collecting ... collected 1 item
 
-tests/test_game.py ..................F                                   [100%]
+tests/test_game.py::test_get_best_move_second FAILED                     [100%]
 
 =================================== FAILURES ===================================
 __________________________ test_get_best_move_second ___________________________
@@ -17,8 +18,10 @@ __________________________ test_get_best_move_second ___________________________
         # points = []
         # points = None
         game = Game()
->       assert game.get_best_move(board, empty_cells, turns, points) == [1]
-E       NameError: name 'points' is not defined
+>       assert game.get_best_move(board, empty_cells, turns, points=[]) == [2]
+E       assert 255168 == [2]
+E         -255168
+E         +[2]
 
-tests/test_game.py:118: NameError
-========================= 1 failed, 18 passed in 0.08s =========================
+tests/test_game.py:118: AssertionError
+============================== 1 failed in 8.36s ===============================
