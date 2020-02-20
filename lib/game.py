@@ -81,11 +81,6 @@ class Game():
         divisor = len(points) // len(empty_cells)
         nested = [points[i:i+divisor] for i in range(0, len(points), divisor)]
         sums = [sum(value) for value in nested]
-        print(sums)
         best_move = sums.index(max(sums))
-        print(best_move)
-        print(empty_cells[4])
-        print(empty_cells[best_move][0])
-        # print(selfe.board[1][1])
         self.board[empty_cells[best_move][0]][empty_cells[best_move][1]] = "O"
         return self.board[empty_cells[best_move][0]][empty_cells[best_move][1]]
