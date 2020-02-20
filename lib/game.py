@@ -7,8 +7,6 @@ class Game():
 
     tunrs = []
 
-    # points = []
-
     def display_board(self):
       board_copy = self.board.copy()
       board_copy.insert(1, ['– – – – -'])
@@ -47,8 +45,8 @@ class Game():
         else:
             return 'Make your move'
 
-    def empty_cells(self, board):
-        empty_cells = [[index1,index2] for index1,value1 in enumerate(board) for index2,value2 in enumerate(value1) if value2==' ']
+    def empty_cells(self):
+        empty_cells = [[index1,index2] for index1,value1 in enumerate(self.board) for index2,value2 in enumerate(value1) if value2==' ']
         return empty_cells
 
     def get_best_move(self, board, empty_cells, turns, points=[]):
@@ -77,3 +75,19 @@ class Game():
             else:
               self.get_best_move(new_board, new_empty_cells, new_turns, points)
         return points
+
+    def ai_moves(self, points, board):
+        empty_cells = [[index1,index2] for index1,value1 in enumerate(board) for index2,value2 in enumerate(value1) if value2==' ']
+        divisor = len(points) // len(empty_cells)
+        nested = [points[i:i+divisor] for i in range(0, len(points), divisor)]
+        sums = [sum(value) for value in nested]
+        print(sums)
+        best_move = sums.index(max(sums))
+        print(best_move)
+        print(empty_cells[4])
+        print(empty_cells[best_move][0])
+        # print(selfe.board[1][1])
+        # selfe.board[empty_cells[best_move][0]][empty_cells[best_move][1]] = "O"
+        self.board[1][1] = "O"
+
+        print(self.board[1][1])
