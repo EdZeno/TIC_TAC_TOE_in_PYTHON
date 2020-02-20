@@ -1,5 +1,5 @@
 from lib.game import Game
-#
+
 def test_game_has_board():
     game = Game()
     assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
@@ -111,13 +111,13 @@ def test_get_best_move():
     points = game.get_best_move(game.board, empty_cells, turns, points=[])
     assert  len(points) == 255168
 
-# def test_ai_moves():
-#     board = [[' ',' ',' '],
-#              [' ',' ',' '],
-#              [' ',' ',' ']]
-#     game = Game()
-#     empty_cells = game.empty_cells()
-#     turns = ['X']
-#     points = game.get_best_move(board, empty_cells, turns, points=[])
-#
-#     assert  game.ai_moves(points, board) == 9
+def test_ai_moves():
+    game = Game()
+    game.board = [[' ',' ',' '],
+             [' ',' ',' '],
+             [' ',' ',' ']]
+    empty_cells = game.empty_cells()
+    turns = ['X']
+    points = game.get_best_move(game.board, empty_cells, turns, points=[])
+
+    assert  game.ai_moves(points) == "O"
