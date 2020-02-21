@@ -121,3 +121,13 @@ def test_ai_moves():
     points = game.get_best_move(game.board, empty_cells, turns, points=[])
 
     assert  game.ai_moves(points) == "O"
+
+def test_ai_moves_second():
+    game = Game()
+    game.board = [['X',' ',' '],
+             ['X','O',' '],
+             [' ',' ',' ']]
+    empty_cells = game.empty_cells()
+    turns = ['X']
+    points = game.get_best_move(game.board, empty_cells, turns, points=[])
+    assert  game.ai_moves(points) == "O"
