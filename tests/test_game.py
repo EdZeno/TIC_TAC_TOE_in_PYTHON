@@ -160,4 +160,5 @@ def test_ai_moves_fifth():
     empty_cells = game.empty_cells()
     turns = ['X']
     points = game.get_best_move(game.board, empty_cells, turns, points=[])
-    assert  game.ai_moves(points) == "O"
+    assert game.ai_moves(points) == "O"
+    assert game.board[0][0] == "O"
