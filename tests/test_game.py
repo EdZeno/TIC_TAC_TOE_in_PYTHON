@@ -151,3 +151,13 @@ def test_ai_moves_fourth():
     turns = ['X']
     points = game.get_best_move(game.board, empty_cells, turns, points=[])
     assert  game.ai_moves(points) == "O"
+
+def test_ai_moves_fifth():
+    game = Game()
+    game.board = [[' ','O','O'],
+             [' ','X',' '],
+             [' ','X','X']]
+    empty_cells = game.empty_cells()
+    turns = ['X']
+    points = game.get_best_move(game.board, empty_cells, turns, points=[])
+    assert  game.ai_moves(points) == "O"

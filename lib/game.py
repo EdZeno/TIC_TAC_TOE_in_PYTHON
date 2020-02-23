@@ -78,6 +78,7 @@ class Game():
     def ai_moves(self, points):
         empty_cells = [[index1,index2] for index1,value1 in enumerate(self.board) for index2,value2 in enumerate(value1) if value2==' ']
         print(empty_cells)
+        print(len(points))
         divisor = len(points) // len(empty_cells)
         nested = [points[i:i+divisor] for i in range(0, len(points), divisor)]
         sums = [sum(value) for value in nested]
