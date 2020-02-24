@@ -4,9 +4,9 @@ def test_game_has_board():
     game = Game()
     assert game.board == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
-def test_display_board():
-    game = Game()
-    assert game.display_board() == '  |   |  \n– – – – -\n  |   |  \n– – – – -\n  |   |  '
+# def test_display_board():
+#     game = Game()
+#     assert game.display_board() == '  |   |  \n– – – – -\n  |   |  \n– – – – -\n  |   |  '
 
 def test_human_moves(monkeypatch):
         monkeypatch.setattr('builtins.input', lambda x: '3')
@@ -162,3 +162,14 @@ def test_ai_moves_fifth():
     points = game.get_best_move(game.board, empty_cells, turns, points=[])
     assert game.ai_moves(points) == "O"
     assert game.board[0][0] == "O"
+
+def test_ai_moves_fifth():
+    game = Game()
+    game.board = [['X',' ',' '],
+             [' ',' ',' '],
+             [' ',' ',' ']]
+    empty_cells = game.empty_cells()
+    turns = ['X']
+    points = game.get_best_move(game.board, empty_cells, turns, points=[])
+    assert game.ai_moves(points) == "O"
+    assert game.board[1][1] == "O"

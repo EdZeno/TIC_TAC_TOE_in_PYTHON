@@ -5,21 +5,21 @@ class Game():
              [' ',' ',' '],
              [' ',' ',' ']]
 
-    tunrs = []
+    turns = []
 
     def display_board(self):
       board_copy = self.board.copy()
       board_copy.insert(1, ['– – – – -'])
       board_copy.insert(3, ['– – – – -'])
       pretty_board = ''.join('\n'.join([' | '.join([str(elem) for elem in list]) for list in board_copy]))
-      print(pretty_board)
-      return pretty_board
+      return print(pretty_board)
 
     def human_moves(self):
       row = input("Drawing an X\nSelect a row  1-3 (from top to buttom)  ")
       cell = input("Select a cell 1-3 (from left to right)  ")
       self.board[int(row)-1][int(cell)-1]="X"
-      return print(self.display_board())
+      self.turns.append("X")
+      return self.display_board()
 
     def winner(self, board):
       for i in [0,1,2]:
@@ -82,6 +82,9 @@ class Game():
         divisor = len(points) // len(empty_cells)
         nested = [points[i:i+divisor] for i in range(0, len(points), divisor)]
         sums = [sum(value) for value in nested]
+        if len(sums) != len(empty_cells):
+           sums[-2] = sums[-2] + sums[-1]
+           del sums[-1]
         print(sums)
         best_move = sums.index(max(sums))
         print(best_move)
