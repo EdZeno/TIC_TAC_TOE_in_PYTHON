@@ -35,15 +35,15 @@ class Game():
 
     def draw(self, board):
         moves = []
-        print(moves)
+        # print(moves)
         for i in board:
             if ' ' in i:
                 moves.append(1)
-        print(moves)
+        # print(moves)
         if self.winner(board) == None and len(moves) == 0:
             return 'Draw'
-        else:
-            return 'Make your move'
+        # else:
+        #     return 'Make your move'
 
     def empty_cells(self):
         empty_cells = [[index1,index2] for index1,value1 in enumerate(self.board) for index2,value2 in enumerate(value1) if value2==' ']
