@@ -77,16 +77,16 @@ class Game():
 
     def ai_moves(self, points):
         empty_cells = [[index1,index2] for index1,value1 in enumerate(self.board) for index2,value2 in enumerate(value1) if value2==' ']
-        # print(empty_cells)
-        # print(len(points))
+        print(empty_cells)
+        print(len(points))
         divisor = len(points) // len(empty_cells)
         nested = [points[i:i+divisor] for i in range(0, len(points), divisor)]
         sums = [sum(value) for value in nested]
         if len(sums) != len(empty_cells):
            sums[-2] = sums[-2] + sums[-1]
            del sums[-1]
-        # print(sums)
+        print(sums)
         best_move = sums.index(max(sums))
-        # print(best_move)
+        print(best_move)
         self.board[empty_cells[best_move][0]][empty_cells[best_move][1]] = "O"
         return self.board[empty_cells[best_move][0]][empty_cells[best_move][1]]

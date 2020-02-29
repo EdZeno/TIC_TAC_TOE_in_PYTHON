@@ -19,6 +19,4 @@ def play_game():
         if game.winner(game.board) != None or game.draw(game.board) == 'Draw':
             break
 
-
-
 play_game()
