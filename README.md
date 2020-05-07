@@ -14,3 +14,5 @@ pytest .
 ### HOW TO RUN THE TESTS?
 
 ### HOW WOULD I MAKE IT BETTER?
+
+I will probably come back to it (:
